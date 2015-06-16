@@ -67,12 +67,15 @@ def biomed_spider():
 
 def print_project_lists_excel(project_lists):
     wb=Workbook(optimized_write=True);
-    ws=[];
-    ws.append(wb.create_sheet(title="Available Project Information"));
-    ws[0].append(['Number', 'Project Name', 'Project Supervisor', 'Project PDF', 'Project Supervisor Link']);
+    #ws=[];
+    ws = wb.create_sheet(title="Available Project Information")
+    #ws.append(wb.create_sheet(title="Available Project Information"));
+    #ws[0].append(['Number', 'Project Name', 'Project Supervisor', 'Project PDF', 'Project Supervisor Link']);
+    ws.append(['Number', 'Project Name', 'Project Supervisor', 'Project PDF', 'Project Supervisor Link']);
     count=1;
     for project in project_lists:
-        ws[0].append([count,project[0],project[1], project[2], project[3]]);
+        #ws[0].append([count,project[0],project[1], project[2], project[3]]);
+        ws.append([count,project[0],project[1], project[2], project[3]]);
         count+=1;
     save_path='Available_project_information.xlsx';
     wb.save(save_path)
